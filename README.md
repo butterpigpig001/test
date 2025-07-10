@@ -129,7 +129,7 @@ community. The source code can be found on
 Navigate to the `digiRunner` directory:
 
 ```shell
-cd digiRunner
+cd test
 ```
 
 #### Configure the app with environment variables
@@ -139,7 +139,7 @@ Choose an instance name and
 for the app. In most cases, you can use the `default` namespace.
 
 ```shell
-export APP_INSTANCE_NAME=digirunner-1
+export APP_INSTANCE_NAME=digirunner-1-test
 export NAMESPACE=default
 ```
 
