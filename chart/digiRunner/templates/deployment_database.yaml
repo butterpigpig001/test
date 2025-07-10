@@ -34,9 +34,7 @@ spec:
             - |
               apk add --no-cache curl
               curl -k -L "https://repo1.maven.org/maven2/com/h2database/h2/2.3.232/h2-2.3.232.jar" -o h2-2.3.232.jar
-              
-              sleep 60
-
+             
               # 啟動 H2 Server 並讓它在背景執行
               java -cp h2*.jar org.h2.tools.Server -tcp -tcpPort {{ .Values.environment.database.container.port }} -tcpAllowOthers -baseDir /opt/dgr-v4/db -ifNotExists
           resources:
@@ -66,8 +64,8 @@ spec:
 
                   echo "database end" ;
 
-            initialDelaySeconds: 70
-            periodSeconds: 400
+            initialDelaySeconds: 10
+            periodSeconds: 30
             timeoutSeconds: 10
             failureThreshold: 10
       volumes:

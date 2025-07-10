@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-dgr
 spec:
   replicas: {{ .Values.environment.replicaCount }}
   strategy:
@@ -28,6 +28,7 @@ spec:
                 echo "waiting for database service"
                 sleep 2
               done
+              echo "database service is up"
 
           volumeMounts:
             - name: dgr-storage
