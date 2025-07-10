@@ -24,7 +24,7 @@ spec:
           args:
             - |
               echo "Hello world"
-              while ! nc -z {{ .Release.Name }}-database {{ .Values.environment.database.container.port }} ; do
+              while ! nc -z {{ .Release.Name }}-database-service {{ .Values.environment.database.container.port }} ; do
                 echo "waiting for database service"
                 sleep 2
               done
@@ -71,7 +71,7 @@ spec:
                 -Dspring.sql.init.mode=$spring_sql_init_mode \
                 -Des.apilog.allow.write.elastic=false \
                 -Dserver.ssl.enabled=false \
-                -Dspring.datasource.url='jdbc:h2:tcp://{{ .Release.Name }}-database:{{ .Values.environment.database.container.port }}/dgrdb;IFEXISTS=FALSE;NON_KEYWORDS=VALUE;Mode=MySQL' \
+                -Dspring.datasource.url='jdbc:h2:tcp://{{ .Release.Name }}-database-service:{{ .Values.environment.database.container.port }}/dgrdb;IFEXISTS=FALSE;NON_KEYWORDS=VALUE;Mode=MySQL' \
                 org.springframework.boot.loader.launch.PropertiesLauncher
           resources:
             requests:
