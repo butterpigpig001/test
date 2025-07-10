@@ -18,7 +18,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - |
-              echo "Hello world" > /opt/dgr-v4/db/init-database.txt
+              echo "Hello world"
 
           volumeMounts:
             - name: dgr-storage
@@ -55,14 +55,14 @@ spec:
                 - -c
                 - |
                   # 檢查 HTTP endpoint 是否正常
-                  echo "start--" >> /opt/dgr-v4/db/init-database.txt ;
+                  echo "database start";
 
                   if ! nc -z 127.0.0.1 {{ .Values.environment.database.container.port }} ; then
-                    echo "HTTP 檢查失敗" >> /opt/dgr-v4/db/init-database.txt ;
+                    echo "database -- HTTP 檢查失敗" ;
                     exit 1
                   fi
 
-                  echo "end--" >> /opt/dgr-v4/db/init-database.txt ;
+                  echo "database end" ;
 
             initialDelaySeconds: 10
             periodSeconds: 30
