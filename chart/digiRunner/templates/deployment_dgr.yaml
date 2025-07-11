@@ -116,6 +116,8 @@ spec:
                     exit 1
                   fi
 
+                  chown 1000:1000 /opt/dgr-v4/db
+
                   # 檢查 init.txt 檔案是否存在，若存在才執行下載與執行
                   if [ ! -f /opt/dgr-v4/db/init.txt ]; then \
                     # 使用 curl 下載檔案，-k 跳過憑證檢查，-L 跟隨轉址，-o 指定輸出檔案
