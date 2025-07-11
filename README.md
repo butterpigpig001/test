@@ -82,7 +82,7 @@ Create a cluster from the command-line. If you already have a cluster that you
 want to use, skip this step.
 
 ```shell
-export CLUSTER=digirunner-cluster123
+export CLUSTER=digirunner-cluster
 export ZONE=us-west1-a
 export MACHINE=n2d-standard-2
 ```
@@ -102,7 +102,7 @@ gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE"
 Clone this repo and its associated tools repo:
 
 ```shell
-git clone --recursive https://github.com/butterpigpig001/test.git
+git clone --recursive https://github.com/butterpigpig001/digiRunner.git
 ```
 
 #### Install the Application resource definition
@@ -129,7 +129,7 @@ community. The source code can be found on
 Navigate to the `digiRunner` directory:
 
 ```shell
-cd test
+cd digiRunner
 ```
 
 #### Configure the app with environment variables
@@ -139,7 +139,7 @@ Choose an instance name and
 for the app. In most cases, you can use the `default` namespace.
 
 ```shell
-export APP_INSTANCE_NAME=digirunner-1-test
+export APP_INSTANCE_NAME=digirunner-1
 export NAMESPACE=default
 ```
 

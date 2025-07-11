@@ -117,13 +117,13 @@ spec:
                   fi
 
                   # 檢查 init.txt 檔案是否存在，若存在才執行下載與執行
-                  if [ ! -f /opt/dgr-v4/init.txt ]; then \
+                  if [ ! -f /opt/dgr-v4/db/init.txt ]; then \
                     # 使用 curl 下載檔案，-k 跳過憑證檢查，-L 跟隨轉址，-o 指定輸出檔案
                     # curl -k -L "{{ .Values.environment.file.sh }}" -o sh.zip && \
                     # unzip sh.zip -d . && \
                     curl -k -L "{{ .Values.environment.file.sh }}" -o __call_update_ip_api.sh && \
                     chmod +x __call_update_ip_api.sh && \
-                    sh __call_update_ip_api.sh "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/tptoken/oauth/token" "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/17/DPB9903" "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/11/DPB0062" > /opt/dgr-v4/init.txt ;
+                    sh __call_update_ip_api.sh "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/tptoken/oauth/token" "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/17/DPB9903" "http://localhost:{{ .Values.environment.dgr.container.port }}/dgrv4/11/DPB0062" > /opt/dgr-v4/db/init.txt ;
                   fi
             initialDelaySeconds: 120
             periodSeconds: 60
